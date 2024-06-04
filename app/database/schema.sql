@@ -1,26 +1,26 @@
-CREATE TABLE plantas (
+CREATE TABLE plants (
     id INTEGER PRIMARY KEY,
-    nome TEXT,
-    porta INTEGER
+    name TEXT,
+    port INTEGER
 );
 
-CREATE TABLE nutrientes (
+CREATE TABLE nutrients (
     id INTEGER PRIMARY KEY,
-    nome TEXT,
-    porta INTEGER
+    name TEXT,
+    port INTEGER
 );
 
-CREATE TABLE rotinas (
+CREATE TABLE routines (
     id INTEGER PRIMARY KEY,
-    planta_id INTEGER,
-    nutriente_id INTEGER,
-    frequencia_por_hora INTEGER,
-    quantidade_ppm REAL,
-    ultima_rega TIMESTAMP,
-    FOREIGN KEY (planta_id) REFERENCES planta(id),
-    FOREIGN KEY (nutriente_id) REFERENCES nutrientes(id)
+    plant_id INTEGER,
+    nutrient_id INTEGER,
+    frequency_per_hour INTEGER,
+    ppm_quantity REAL,
+    last_watering TIMESTAMP,
+    FOREIGN KEY (plant_id) REFERENCES plants(id),
+    FOREIGN KEY (nutrient_id) REFERENCES nutrients(id)
 );
 
-INSERT INTO plantas (porta, nome) VALUES (1, 'Planta A');
-INSERT INTO nutrientes (porta, nome) VALUES (2, 'Nutriente X');
-INSERT INTO rotinas (planta_id, nutriente_id, frequencia_por_hora, quantidade_ppm, ultima_rega) VALUES (1, 1, 1, 200.0, '2024-03-20 00:00:00');
+INSERT INTO plants (port, name) VALUES (1, 'Planta A');
+INSERT INTO nutrients (port, name) VALUES (2, 'Nutriente X');
+INSERT INTO routines (plant_id, nutrient_id, frequency_per_hour, ppm_quantity, last_watering) VALUES (1, 1, 1, 200.0, '2024-03-20 00:00:00');

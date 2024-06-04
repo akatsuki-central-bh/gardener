@@ -1,0 +1,28 @@
+<a href="/routines/create">Criar rotina nova</a>
+
+<div class="container">
+  <h1>Rotinas</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Frequência por hora</th>
+        <th>Quantidade (ppm)</th>
+        <th>Última rega</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for routine in routines %}
+      <tr>
+        <td>{{ routine.id }}</td>
+        <td>{{ routine.frequency_per_hour }}</td>
+        <td>{{ routine.ppm_quantity }}</td>
+        <td>{{ routine.last_watering }}</td>
+        <td>
+          <a href="/routines/{{ routine.id }}">Ver detalhes</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+

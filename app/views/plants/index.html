@@ -1,0 +1,28 @@
+<a href="/plants/create">Adicionar planta</a>
+
+<div class="container">
+  <h1>Plantas</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Porta</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for plant in plants %}
+      <tr>
+        <td>{{ plant.id }}</td>
+        <td>{{ plant.name }}</td>
+        <td>{{ plant.port }}</td>
+        <td>
+          <a href="/plants/{{ plant.id }}">Ver detalhes</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+

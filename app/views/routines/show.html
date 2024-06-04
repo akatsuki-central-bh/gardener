@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>{{ routine.id }}</h1>
+
+  <a href="/plants/{{ routine.plant_id }}">Ver planta</a>
+  <a href="/nutrients/{{ routine.nutrient_id }}">Ver nutriente</a>
+
+  <p>Frequência por hora: {{ routine.frequency_per_hour }}</p>
+  <p>Quantidade (ppm): {{ routine.ppm_quantity }}</p>
+  <p>Última rega: {{ routine.last_watering }}</p>
+  <a href="/routines/{{ routine.id }}/edit">Editar</a>
+  <a href="/routines/{{ routine.id }}/delete">Deletar</a>
+</div>

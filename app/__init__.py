@@ -22,15 +22,15 @@ def create_app():
     from .database import database
     database.init_app(app)
 
-    # from .controllers import auth_controller
-    # app.register_blueprint(auth_controller.bp)
+    from .controllers import plants_controller
+    app.register_blueprint(plants_controller.bp)
 
-    # from .controllers import admin_controller
-    # app.register_blueprint(admin_controller.bp)
+    from .controllers import nutrients_controller
+    app.register_blueprint(nutrients_controller.bp)
 
-    # from .controllers import contents_controller
-    # app.register_blueprint(contents_controller.bp)
+    from .controllers import routines_controller
+    app.register_blueprint(routines_controller.bp)
 
-    # app.add_url_rule('/', endpoint='index')
+    app.add_url_rule('/', endpoint='index')
 
     return app
