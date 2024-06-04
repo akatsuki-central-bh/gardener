@@ -15,5 +15,5 @@ flask --app app init-routines
 
 Comando para inicializar o aplicativo
 ```bash
-flask --app app run
+flask --app app run --host=0.0.0.0
 ```
