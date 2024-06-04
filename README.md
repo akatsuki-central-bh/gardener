@@ -1,3 +1,8 @@
+Comando para instalar dependências
+```bash
+pip install -r requirements.txt
+```
+
 Comando para inicializar o banco de dados
 ```bash
 flask --app app init-db
