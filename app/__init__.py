@@ -22,6 +22,9 @@ def create_app():
     from .database import database
     database.init_app(app)
 
+    from . import gardener
+    gardener.init_app(app)
+
     from .controllers import plants_controller
     app.register_blueprint(plants_controller.bp)
 
