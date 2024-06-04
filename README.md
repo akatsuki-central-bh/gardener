@@ -1,6 +1,8 @@
 Comando para instalar dependências
 ```bash
-pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
 ```
 
 Comando para inicializar o banco de dados
