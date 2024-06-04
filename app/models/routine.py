@@ -79,3 +79,12 @@ class Routine():
     from app.models.nutrient import Nutrient
 
     return Nutrient.find(self.nutrient_id)
+
+  def save(self):
+    db = get_db()
+    db.execute('UPDATE routines SET plant_id = ?, nutrient_id = ?, frequency_per_hour = ?, ppm_quantity = ?, last_watering = ? WHERE id = ?', (
+      self.plant_id, self.nutrient_id, self.frequency_per_hour, self.ppm_quantity, self.last_watering, self.id)
+    )
+    db.commit()
+
+    return self
