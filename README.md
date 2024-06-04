@@ -1,3 +1,14 @@
+Comando para inicializar o banco de dados
+```bash
 flask --app app init-db
+```
+
+Comando para inicializar o sistema de rotinas
+```bash
 flask --app app init-routines
-flask --app app app
+```
+
+Comando para inicializar o aplicativo
+```bash
+flask --app app run
+```
