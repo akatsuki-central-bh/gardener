@@ -3,22 +3,19 @@ from datetime import datetime
 
 import click
 
-from app.hardware.water_pump import WaterPump
+from app.hardware.component import Component
 from app.models.routine import Routine
 
 def regar(routine):
   plant = routine.plant()
   nutrient = routine.nutrient()
 
-  print(f"Regando planta {plant.name} com {nutrient.name} ({routine.ppm_quantity} ppm)")
-  print(f"horario: {datetime.now()} Próxima rega em {routine.frequency_per_hour} horas")
+  print(f"Regando planta {plant.name} com {nutrient.name} ({routine.on_duration} ppm)")
+  print(f"horario: {datetime.now()} Próxima rega em {routine.watering_interval_days} horas")
   print("")
 
-  entrada_agua = WaterPump(12)
-  entrada_agua.on()
-  time.sleep(5)
-
-  entrada_agua.off()
+  entrada_agua = Component(12)
+  entrada_agua.toggle_with_delay(5)
 
 @click.command('init-routines')
 def init_routines_command():
@@ -31,7 +28,7 @@ def init_routines_command():
       ultima_rega = routine.last_watering
       ultima_rega = time.mktime(ultima_rega.timetuple())
 
-      frequencia_por_hora = routine.frequency_per_hour
+      frequencia_por_hora = routine.watering_interval_days
 
       if (time.time() - ultima_rega) >= frequencia_por_hora:
         regar(routine)
