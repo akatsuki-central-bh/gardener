@@ -4,8 +4,8 @@
   <a href="/plants/{{ routine.plant_id }}">Ver planta</a>
   <a href="/nutrients/{{ routine.nutrient_id }}">Ver nutriente</a>
 
-  <p>Frequência por hora: {{ routine.frequency_per_hour }}</p>
-  <p>Quantidade (ppm): {{ routine.ppm_quantity }}</p>
+  <p>Frequência por dia: {{ routine.watering_interval_days }}</p>
+  <p>Duração de exposição: {{ routine.on_duration }}</p>
   <p>Última rega: {{ routine.last_watering }}</p>
   <a href="/routines/{{ routine.id }}/edit">Editar</a>
   <a href="/routines/{{ routine.id }}/delete">Deletar</a>

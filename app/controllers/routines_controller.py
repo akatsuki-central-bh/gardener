@@ -22,11 +22,11 @@ def new():
 def create():
   plant_id = request.form['plant_id']
   nutrient_id = request.form['nutrient_id']
-  frequency_per_hour = request.form['frequency_per_hour']
-  ppm_quantity = request.form['ppm_quantity']
+  watering_interval_days = request.form['watering_interval_days']
+  on_duration = request.form['on_duration']
   last_watering = request.form['last_watering']
 
-  Routine.create(plant_id, nutrient_id, frequency_per_hour, ppm_quantity, last_watering)
+  Routine.create(plant_id, nutrient_id, watering_interval_days, on_duration, last_watering)
 
   return redirect(url_for('routines.index'))
 
@@ -52,11 +52,11 @@ def update(id):
 
   plant_id = request.form['plant_id']
   nutrient_id = request.form['nutrient_id']
-  frequency_per_hour = request.form['frequency_per_hour']
-  ppm_quantity = request.form['ppm_quantity']
+  watering_interval_days = request.form['watering_interval_days']
+  on_duration = request.form['on_duration']
   last_watering = request.form['last_watering']
 
-  routine.update(plant_id, nutrient_id, frequency_per_hour, ppm_quantity, last_watering)
+  routine.update(plant_id, nutrient_id, watering_interval_days, on_duration, last_watering)
 
   return redirect(url_for('routines.index'))
 

@@ -9,8 +9,8 @@
     <thead>
       <tr>
         <th>Id</th>
-        <th>Frequência por hora</th>
-        <th>Quantidade (ppm)</th>
+        <th>Frequência por dia</th>
+        <th>Duração de exposição</th>
         <th>Última rega</th>
       </tr>
     </thead>
@@ -18,8 +18,8 @@
       {% for routine in routines %}
       <tr>
         <td>{{ routine.id }}</td>
-        <td>{{ routine.frequency_per_hour }}</td>
-        <td>{{ routine.ppm_quantity }}</td>
+        <td>{{ routine.watering_interval_days }}</td>
+        <td>{{ routine.on_duration }}</td>
         <td>{{ routine.last_watering }}</td>
         <td>
           <a href="/routines/{{ routine.id }}">Ver detalhes</a>

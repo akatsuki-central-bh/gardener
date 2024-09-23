@@ -1,12 +1,12 @@
 from app.database.database import get_db
 
 class Routine():
-  def __init__(self, id, plant_id, nutrient_id, frequency_per_hour, ppm_quantity, last_watering):
+  def __init__(self, id, plant_id, nutrient_id, watering_interval_days, on_duration, last_watering):
     self.id = id
     self.plant_id = plant_id
     self.nutrient_id = nutrient_id
-    self.frequency_per_hour = frequency_per_hour
-    self.ppm_quantity = ppm_quantity
+    self.watering_interval_days = watering_interval_days
+    self.on_duration = on_duration
     self.last_watering = last_watering
 
   @classmethod
@@ -18,8 +18,8 @@ class Routine():
       id=routine['id'],
       plant_id=routine['plant_id'],
       nutrient_id=routine['nutrient_id'],
-      frequency_per_hour=routine['frequency_per_hour'],
-      ppm_quantity=routine['ppm_quantity'],
+      watering_interval_days=routine['watering_interval_days'],
+      on_duration=routine['on_duration'],
       last_watering=routine['last_watering']
     ), routines)
 
@@ -32,35 +32,39 @@ class Routine():
       id=routine['id'],
       plant_id=routine['plant_id'],
       nutrient_id=routine['nutrient_id'],
-      frequency_per_hour=routine['frequency_per_hour'],
-      ppm_quantity=routine['ppm_quantity'],
+      watering_interval_days=routine['watering_interval_days'],
+      on_duration=routine['on_duration'],
       last_watering=routine['last_watering']
     )
 
   @classmethod
-  def create(cls, plant_id, nutrient_id, frequency_per_hour, ppm_quantity, last_watering):
+  def create(cls, plant_id, nutrient_id, watering_interval_days, on_duration, last_watering):
     db = get_db()
-    db.execute('INSERT INTO routines (plant_id, nutrient_id, frequency_per_hour, ppm_quantity, last_watering) VALUES (?, ?, ?, ?, ?)', (plant_id, nutrient_id, frequency_per_hour, ppm_quantity, last_watering))
+    db.execute('INSERT INTO routines (plant_id, nutrient_id, watering_interval_days, on_duration, last_watering) VALUES (?, ?, ?, ?, ?)', (
+      plant_id, nutrient_id, watering_interval_days, on_duration, last_watering)
+    )
     db.commit()
 
     return Routine(
       id=db.execute('SELECT last_insert_rowid()').fetchone()['last_insert_rowid()'],
       plant_id=plant_id,
       nutrient_id=nutrient_id,
-      frequency_per_hour=frequency_per_hour,
-      ppm_quantity=ppm_quantity,
+      watering_interval_days=watering_interval_days,
+      on_duration=on_duration,
       last_watering=last_watering
     )
 
-  def update(self, plant_id, nutrient_id, frequency_per_hour, ppm_quantity, last_watering):
+  def update(self, plant_id, nutrient_id, watering_interval_days, on_duration, last_watering):
     db = get_db()
-    db.execute('UPDATE routines SET plant_id = ?, nutrient_id = ?, frequency_per_hour = ?, ppm_quantity = ?, last_watering = ? WHERE id = ?', (plant_id, nutrient_id, frequency_per_hour, ppm_quantity, last_watering, self.id))
+    db.execute('UPDATE routines SET plant_id = ?, nutrient_id = ?, watering_interval_days = ?, on_duration = ?, last_watering = ? WHERE id = ?', (
+      plant_id, nutrient_id, watering_interval_days, on_duration, last_watering, self.id)
+    )
     db.commit()
 
     self.plant_id = plant_id
     self.nutrient_id = nutrient_id
-    self.frequency_per_hour = frequency_per_hour
-    self.ppm_quantity = ppm_quantity
+    self.watering_interval_days = watering_interval_days
+    self.on_duration = on_duration
     self.last_watering = last_watering
 
     return self
@@ -82,8 +86,8 @@ class Routine():
 
   def save(self):
     db = get_db()
-    db.execute('UPDATE routines SET plant_id = ?, nutrient_id = ?, frequency_per_hour = ?, ppm_quantity = ?, last_watering = ? WHERE id = ?', (
-      self.plant_id, self.nutrient_id, self.frequency_per_hour, self.ppm_quantity, self.last_watering, self.id)
+    db.execute('UPDATE routines SET plant_id = ?, nutrient_id = ?, watering_interval_days = ?, on_duration = ?, last_watering = ? WHERE id = ?', (
+      self.plant_id, self.nutrient_id, self.watering_interval_days, self.on_duration, self.last_watering, self.id)
     )
     db.commit()
 

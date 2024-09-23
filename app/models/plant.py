@@ -64,7 +64,7 @@ class Plant():
       id=routine['id'],
       plant_id=routine['plant_id'],
       nutrient_id=routine['nutrient_id'],
-      frequency_per_hour=routine['frequency_per_hour'],
-      ppm_quantity=routine['ppm_quantity'],
+      watering_interval_days=routine['watering_interval_days'],
+      on_duration=routine['on_duration'],
       last_watering=routine['last_watering']
     ), routines)
