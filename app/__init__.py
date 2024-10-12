@@ -25,6 +25,9 @@ def create_app():
     from . import gardener
     gardener.init_app(app)
 
+    from .controllers import home_controller
+    app.register_blueprint(home_controller.bp)
+
     from .controllers import plants_controller
     app.register_blueprint(plants_controller.bp)
 
@@ -33,7 +36,5 @@ def create_app():
 
     from .controllers import routines_controller
     app.register_blueprint(routines_controller.bp)
-
-    app.add_url_rule('/', endpoint='index')
 
     return app
