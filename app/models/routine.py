@@ -1,4 +1,6 @@
 from app.database.database import get_db
+from datetime import datetime, timedelta
+from app.hardware.component import Component
 
 class Routine():
   def __init__(self, id, plant_id, nutrient_id, watering_interval_days, on_duration, last_watering):
@@ -76,12 +78,10 @@ class Routine():
 
   def plant(self):
     from app.models.plant import Plant
-
     return Plant.find(self.plant_id)
 
   def nutrient(self):
     from app.models.nutrient import Nutrient
-
     return Nutrient.find(self.nutrient_id)
 
   def save(self):
@@ -92,3 +92,26 @@ class Routine():
     db.commit()
 
     return self
+
+  def next_watering_date(self):
+    return self.last_watering + timedelta(days=self.watering_interval_days)
+
+  def execute_watering(self):
+    plant = self.plant()
+    nutrient = self.nutrient()
+
+    print(f"Horario atual: {datetime.now()}")
+    print(f"Regando planta {plant.name} com {nutrient.name} por {self.on_duration} segundos")
+    print(f"Ultima rega: {self.last_watering}")
+
+    entrada_nutriente = Component(nutrient.port)
+    entrada_nutriente.toggle_with_delay(self.on_duration)
+
+    saida_nutriente = Component(plant.port)
+    saida_nutriente.toggle_with_delay(self.on_duration)
+
+    self.last_watering = datetime.now()
+    self.save()
+
+    print(f"Próxima rega disponivel em {self.next_watering_date()}")
+    print("")

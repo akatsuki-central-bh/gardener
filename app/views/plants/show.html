@@ -14,6 +14,7 @@
       <th>Frequência por dia</th>
       <th>Duração de exposição</th>
       <th>Última rega</th>
+      <th>Próxima rega disponível em</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,7 @@
       <td>{{ routine.watering_interval_days }}</td>
       <td>{{ routine.on_duration }}</td>
       <td>{{ routine.last_watering }}</td>
+      <td>{{ routine.next_watering_date() }}</td>
       <td>
         <a href="/routines/{{ routine.id }}">Ver detalhes</a>
       </td>

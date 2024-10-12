@@ -8,6 +8,8 @@
 <p>Frequência por dia: {{ routine.watering_interval_days }}</p>
 <p>Duração de exposição: {{ routine.on_duration }}</p>
 <p>Última rega: {{ routine.last_watering }}</p>
+<p>Próxima rega disponível em: {{ routine.next_watering_date() }}</p>
+
 <a href="/routines/{{ routine.id }}/edit">Editar</a>
 <a href="/routines/{{ routine.id }}/delete">Deletar</a>
 
