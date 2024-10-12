@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask import (
   Blueprint, flash, g, redirect, render_template, request, url_for
 )
@@ -24,7 +26,7 @@ def create():
   nutrient_id = request.form['nutrient_id']
   watering_interval_days = request.form['watering_interval_days']
   on_duration = request.form['on_duration']
-  last_watering = request.form['last_watering']
+  last_watering = format_date_time(request.form['last_watering'])
 
   Routine.create(plant_id, nutrient_id, watering_interval_days, on_duration, last_watering)
 
@@ -54,7 +56,7 @@ def update(id):
   nutrient_id = request.form['nutrient_id']
   watering_interval_days = request.form['watering_interval_days']
   on_duration = request.form['on_duration']
-  last_watering = request.form['last_watering']
+  last_watering = format_date_time(request.form['last_watering'])
 
   routine.update(plant_id, nutrient_id, watering_interval_days, on_duration, last_watering)
 
@@ -67,3 +69,8 @@ def delete(id):
   routine.destroy()
 
   return redirect(url_for('routines.index'))
+
+def format_date_time(date_time_string):
+  date_time = datetime.strptime(date_time_string, '%Y-%m-%dT%H:%M')
+
+  return date_time.strftime('%Y-%m-%d %H:%M:%S')
