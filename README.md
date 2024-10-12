@@ -15,7 +15,7 @@ Comando para inicializar o sistema de rotinas
 flask --app app init-routines
 ```
 
-Comando para inicializar o aplicativo
+Comando para inicializar o aplicativo, coloque a flag --debug caso esteja em ambiente de desenvolvimento
 ```bash
 flask --app app run --host=0.0.0.0
 ```

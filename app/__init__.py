@@ -13,7 +13,6 @@ def create_app():
 
     app.config.from_pyfile('config.py', silent=True)
 
-    # ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)
     except OSError:
