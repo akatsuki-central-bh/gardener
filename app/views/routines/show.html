@@ -1,16 +1,14 @@
 {% extends 'template/base.html' %} {% block content %}
 
-<div class="container">
-  <h1>Rotina #{{ routine.id }}</h1>
+<h1>Rotina #{{ routine.id }}</h1>
 
-  <a href="/plants/{{ routine.plant_id }}">Ver planta</a>
-  <a href="/nutrients/{{ routine.nutrient_id }}">Ver nutriente</a>
+<a href="/plants/{{ routine.plant_id }}">Ver planta</a>
+<a href="/nutrients/{{ routine.nutrient_id }}">Ver nutriente</a>
 
-  <p>Frequência por dia: {{ routine.watering_interval_days }}</p>
-  <p>Duração de exposição: {{ routine.on_duration }}</p>
-  <p>Última rega: {{ routine.last_watering }}</p>
-  <a href="/routines/{{ routine.id }}/edit">Editar</a>
-  <a href="/routines/{{ routine.id }}/delete">Deletar</a>
-</div>
+<p>Frequência por dia: {{ routine.watering_interval_days }}</p>
+<p>Duração de exposição: {{ routine.on_duration }}</p>
+<p>Última rega: {{ routine.last_watering }}</p>
+<a href="/routines/{{ routine.id }}/edit">Editar</a>
+<a href="/routines/{{ routine.id }}/delete">Deletar</a>
 
 {% endblock %}

@@ -1,37 +1,34 @@
 {% extends 'template/base.html' %} {% block content %}
 
+<h1>Planta #{{ plant.id }}</h1>
+<p>{{ plant.name }}</p>
+<p>Porta: {{ plant.port }}</p>
+<a href="/plants/{{ plant.id }}/edit">Editar</a>
+<a href="/plants/{{ plant.id }}/delete">Deletar</a>
 
-<div class="container">
-  <h1>Planta #{{ plant.id }}</h1>
-  <p>{{ plant.name }}</p>
-  <p>Porta: {{ plant.port }}</p>
-  <a href="/plants/{{ plant.id }}/edit">Editar</a>
-  <a href="/plants/{{ plant.id }}/delete">Deletar</a>
-
-  <h2>Rotinas da planta</h2>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Frequência por dia</th>
-        <th>Duração de exposição</th>
-        <th>Última rega</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for routine in routines %}
-      <tr>
-        <td>{{ routine.id }}</td>
-        <td>{{ routine.watering_interval_days }}</td>
-        <td>{{ routine.on_duration }}</td>
-        <td>{{ routine.last_watering }}</td>
-        <td>
-          <a href="/routines/{{ routine.id }}">Ver detalhes</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+<h2>Rotinas da planta</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Frequência por dia</th>
+      <th>Duração de exposição</th>
+      <th>Última rega</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for routine in routines %}
+    <tr>
+      <td>{{ routine.id }}</td>
+      <td>{{ routine.watering_interval_days }}</td>
+      <td>{{ routine.on_duration }}</td>
+      <td>{{ routine.last_watering }}</td>
+      <td>
+        <a href="/routines/{{ routine.id }}">Ver detalhes</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endblock %}

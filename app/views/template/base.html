@@ -8,7 +8,7 @@
   <title>Gardener</title>
 </head>
 <body>
-  <main class="d-flex flex-row">
+  <main class="d-flex flex-row vw-100 vh-100">
     <nav class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <span class="fs-4">Gardener</span>
@@ -23,9 +23,11 @@
       <a href="https://github.com/akatsuki-central-bh/gardener" class="nav-link text-white">source code</a>
     </nav>
 
-    {% block content %}
+    <div class="border p-4 m-4 flex-fill">
+      {% block content %}
 
-    {% endblock %}
+      {% endblock %}
+    </div>
   </main>
 </body>
 </html>

@@ -1,32 +1,29 @@
 {% extends 'template/base.html' %} {% block content %}
 
-
-<div class="container">
-  <h1>Rotinas</h1>
-  <a href="/routines/create">Criar rotina nova</a>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Frequência por dia</th>
-        <th>Duração de exposição</th>
-        <th>Última rega</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for routine in routines %}
-      <tr>
-        <td>{{ routine.id }}</td>
-        <td>{{ routine.watering_interval_days }}</td>
-        <td>{{ routine.on_duration }}</td>
-        <td>{{ routine.last_watering }}</td>
-        <td>
-          <a href="/routines/{{ routine.id }}">Ver detalhes</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+<h1>Rotinas</h1>
+<a href="/routines/create">Criar rotina</a>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Frequência por dia</th>
+      <th>Duração de exposição</th>
+      <th>Última rega</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for routine in routines %}
+    <tr>
+      <td>{{ routine.id }}</td>
+      <td>{{ routine.watering_interval_days }}</td>
+      <td>{{ routine.on_duration }}</td>
+      <td>{{ routine.last_watering }}</td>
+      <td>
+        <a href="/routines/{{ routine.id }}">Ver detalhes</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endblock %}

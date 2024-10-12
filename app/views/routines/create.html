@@ -1,41 +1,35 @@
 {% extends 'template/base.html' %} {% block content %}
-<div class="container">
-  <h1>Adicionar Rotina</h1>
+<h1>Adicionar Rotina</h1>
 
-  <form action="" method="POST">
-    <input
-      type="text"
-      name="plant_id"
-      placeholder="Id da planta"
-      id="plant_id"
-    />
-    <input
-      type="text"
-      name="nutrient_id"
-      placeholder="Id do nutriente"
-      id="nutrient_id"
-    />
+<form action="" method="POST">
+  <input type="text" name="plant_id" placeholder="Id da planta" id="plant_id" />
+  <input
+    type="text"
+    name="nutrient_id"
+    placeholder="Id do nutriente"
+    id="nutrient_id"
+  />
 
-    <input
-      type="text"
-      name="watering_interval_days"
-      placeholder="Frequência por dia"
-      id="watering_interval_days"
-    />
-    <input
-      type="text"
-      name="on_duration"
-      placeholder="Duração de exposição"
-      id="on_duration"
-    />
-    <input
-      type="datetime-local"
-      name="last_watering"
-      placeholder="Última rega"
-      id="last_watering"
-    />
+  <input
+    type="text"
+    name="watering_interval_days"
+    placeholder="Frequência por dia"
+    id="watering_interval_days"
+  />
+  <input
+    type="text"
+    name="on_duration"
+    placeholder="Duração de exposição"
+    id="on_duration"
+  />
+  <input
+    type="datetime-local"
+    name="last_watering"
+    placeholder="Última rega"
+    id="last_watering"
+  />
 
-    <button type="submit">Enviar</button>
-  </form>
-</div>
+  <button type="submit">Enviar</button>
+</form>
+
 {% endblock %}
