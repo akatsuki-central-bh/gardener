@@ -1,5 +1,7 @@
+{% extends 'template/base.html' %} {% block content %}
+
 <div class="container">
-  <h1>{{ routine.id }}</h1>
+  <h1>Rotina #{{ routine.id }}</h1>
 
   <a href="/plants/{{ routine.plant_id }}">Ver planta</a>
   <a href="/nutrients/{{ routine.nutrient_id }}">Ver nutriente</a>
@@ -10,3 +12,5 @@
   <a href="/routines/{{ routine.id }}/edit">Editar</a>
   <a href="/routines/{{ routine.id }}/delete">Deletar</a>
 </div>
+
+{% endblock %}

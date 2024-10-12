@@ -1,10 +1,14 @@
+{% extends 'template/base.html' %} {% block content %}
+
+
 <div class="container">
-  <h1>{{ plant.name }}</h1>
+  <h1>Planta #{{ plant.id }}</h1>
+  <p>{{ plant.name }}</p>
   <p>Porta: {{ plant.port }}</p>
   <a href="/plants/{{ plant.id }}/edit">Editar</a>
   <a href="/plants/{{ plant.id }}/delete">Deletar</a>
 
-  <h2>Rotinas</h2>
+  <h2>Rotinas da planta</h2>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -30,3 +34,4 @@
   </table>
 </div>
 
+{% endblock %}

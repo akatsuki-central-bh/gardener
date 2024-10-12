@@ -1,7 +1,9 @@
-<a href="/plants/create">Adicionar planta</a>
+{% extends 'template/base.html' %} {% block content %}
+
 
 <div class="container">
   <h1>Plantas</h1>
+  <a href="/plants/create">Adicionar planta</a>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -26,3 +28,4 @@
   </table>
 </div>
 
+{% endblock %}

@@ -1,5 +1,13 @@
-<form action="" method="POST">
-  <input type="text" name="name" placeholder="Nome" id="name">
-  <input type="text" name="port" placeholder="Porta" id="port">
-  <button type="submit">Enviar</button>
-</form>
+{% extends 'template/base.html' %} {% block content %}
+
+<div class="container">
+  <h1>Adicionar Planta</h1>
+
+  <form action="" method="POST">
+    <input type="text" name="name" placeholder="Nome" id="name" />
+    <input type="text" name="port" placeholder="Porta" id="port" />
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
+{% endblock %}

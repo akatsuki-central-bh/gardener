@@ -1,7 +1,9 @@
-<a href="/routines/create">Criar rotina nova</a>
+{% extends 'template/base.html' %} {% block content %}
+
 
 <div class="container">
   <h1>Rotinas</h1>
+  <a href="/routines/create">Criar rotina nova</a>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -25,4 +27,6 @@
       {% endfor %}
     </tbody>
   </table>
+</div>
 
+{% endblock %}
